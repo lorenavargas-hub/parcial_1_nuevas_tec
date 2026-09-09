@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+
+# El sitio es 100% estático (HTML/CSS/JS), no hay paso de compilación.
+# Este archivo es opcional: también puedes arrastrar la carpeta directo
+# a Netlify sin este archivo y funcionará igual.

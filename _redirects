@@ -1,0 +1,12 @@
+# Redirecciones de Netlify para que las URLs se vean como pide el proyecto:
+#   /admin          -> panel del administrador
+#   /:slug/admin    -> panel del estudiante
+#   /:slug          -> EProfile pública
+#
+# El orden importa: las reglas más específicas van primero. Los archivos
+# que sí existen (panel.html, admin.html, etc.) siempre se sirven antes
+# de que Netlify revise estas reglas, así que no hay conflicto.
+
+/admin              /admin.html                 200
+/:slug/admin        /panel.html?slug=:slug      200
+/:slug              /perfil.html?slug=:slug     200

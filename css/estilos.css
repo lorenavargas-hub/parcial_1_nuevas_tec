@@ -1,0 +1,249 @@
+/*
+ * estilos.css — Paleta morada para EProfile, inspirada en un dashboard
+ * tipo "Success". Se usa junto con Bootstrap 5 vía CDN: aquí solo se
+ * sobrescriben variables, el layout de sidebar y algunos detalles que
+ * Bootstrap no trae por defecto (línea de tiempo de proyectos, tarjeta
+ * de perfil). Todo lo demás (botones, badges, formularios, grid,
+ * responsive) es Bootstrap estándar.
+ */
+
+:root {
+  --ep-morado: #6c5cd8;
+  --ep-morado-oscuro: #4b3f8c;
+  --ep-morado-sidebar: #4c3e85;
+  --ep-fondo: #eef0fb;
+  --ep-borde: #e3e1f5;
+  --ep-texto: #2c2a3a;
+  --ep-texto-suave: #726f8c;
+  --bs-primary: var(--ep-morado);
+  --bs-primary-rgb: 108, 92, 216;
+  --bs-body-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--ep-fondo);
+  color: var(--ep-texto);
+}
+
+.btn-primary {
+  background-color: var(--ep-morado);
+  border-color: var(--ep-morado);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--ep-morado-oscuro);
+  border-color: var(--ep-morado-oscuro);
+}
+.btn-outline-primary {
+  color: var(--ep-morado);
+  border-color: var(--ep-morado);
+}
+.btn-outline-primary:hover {
+  background-color: var(--ep-morado);
+  border-color: var(--ep-morado);
+}
+a { color: var(--ep-morado-oscuro); }
+
+.navbar-eprofile {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--ep-borde);
+}
+.navbar-eprofile .navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ep-morado-oscuro);
+}
+
+.tarjeta-simple {
+  background: #ffffff;
+  border: 1px solid var(--ep-borde);
+  border-radius: 12px;
+}
+
+.badge-estado-publicado { background-color: var(--ep-morado); }
+.badge-estado-borrador { background-color: #a08b5c; }
+.badge-estado-vacio { background-color: #9a9a95; }
+.badge-cuenta-activa { background-color: var(--ep-morado); }
+.badge-cuenta-inactiva { background-color: #b25c4a; }
+
+/* ================================================================
+   PERFIL PÚBLICO — layout tipo dashboard con sidebar morado
+   ================================================================ */
+
+.eprofile-app {
+  min-height: 100vh;
+}
+
+.eprofile-sidebar {
+  background-color: var(--ep-morado-sidebar);
+  color: #ffffff;
+  min-height: 100vh;
+}
+.eprofile-sidebar .marca {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+}
+.eprofile-sidebar .nav-link {
+  color: #d9d5f5;
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+}
+.eprofile-sidebar .nav-link:hover {
+  color: #ffffff;
+}
+.eprofile-sidebar .nav-link.active {
+  background-color: #ffffff;
+  color: var(--ep-morado-oscuro);
+  font-weight: 600;
+}
+
+.eprofile-contenido {
+  background-color: var(--ep-fondo);
+  min-height: 100vh;
+}
+
+.eprofile-foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #eceafc;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px var(--ep-borde);
+}
+.eprofile-foto-vacia {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #eceafc;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px var(--ep-borde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--ep-morado);
+  font-weight: 600;
+}
+
+.icono-contacto {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--ep-morado);
+  color: #fff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.icono-contacto:hover { background-color: var(--ep-morado-oscuro); }
+
+.etiqueta-academico {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background-color: #eeeafd;
+  color: var(--ep-morado-oscuro);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* Línea de tiempo de proyectos, inspirada en la referencia visual */
+.linea-tiempo { position: relative; padding-left: 2rem; }
+.linea-tiempo::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: var(--ep-borde);
+}
+.item-tiempo { position: relative; margin-bottom: 1rem; }
+.item-tiempo::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--ep-morado);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 1px var(--ep-borde);
+}
+
+/* ================================================================
+   Panel / dashboard (estudiante y admin) — mismo estilo de sidebar
+   ================================================================ */
+.sidebar-panel {
+  background-color: #ffffff;
+  border-right: 1px solid var(--ep-borde);
+  min-height: calc(100vh - 56px);
+}
+.sidebar-panel .nav-link {
+  color: var(--ep-texto);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+.sidebar-panel .nav-link.active {
+  background-color: #eeeafd;
+  color: var(--ep-morado-oscuro);
+  font-weight: 600;
+}
+.medidor-completitud {
+  height: 8px;
+  background-color: #eceafc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.medidor-completitud > div {
+  height: 100%;
+  background-color: var(--ep-morado);
+}
+
+/* ---- Tarjeta digital / QR ---- */
+.tarjeta-digital {
+  max-width: 360px;
+  margin: 0 auto;
+  border: 1px solid var(--ep-borde);
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+.tarjeta-digital canvas {
+  margin: 1rem auto;
+  display: block;
+}
+
+/* ---- Toasts ---- */
+#contenedor-toasts {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1080;
+}
+
+/* ---- CV / impresión ---- */
+.cv-clasica { font-family: 'Times New Roman', Georgia, serif; }
+.cv-moderna { border-left: 4px solid var(--ep-morado); padding-left: 1.25rem; }
+.cv-minimalista { font-family: Arial, Helvetica, sans-serif; }
+
+@media print {
+  .no-imprimir { display: none !important; }
+  body { background: #ffffff; }
+  .contenido-imprimible { box-shadow: none !important; border: none !important; }
+  .eprofile-sidebar { display: none !important; }
+  .eprofile-contenido { width: 100% !important; }
+}
+
+.mensaje-motivacion {
+  background-color: #f2f1fb;
+  border-left: 3px solid var(--ep-morado);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--ep-texto-suave);
+}
